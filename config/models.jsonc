@@ -4,7 +4,7 @@
   "models": {
     "claudecode": {
       "provider": "anthropic",
-      "model_id": "claude-sonnet-4-20250514",
+      "model_id": "claude-sonnet-4-5-20241022",
       "description": "Primary coding agent with tool use",
       "capabilities": [
         "code_generation",
@@ -39,7 +39,7 @@
     },
     "claude": {
       "provider": "anthropic",
-      "model_id": "claude-sonnet-4-20250514",
+      "model_id": "claude-sonnet-4-5-20241022",
       "description": "Research and analysis specialist",
       "capabilities": [
         "research",

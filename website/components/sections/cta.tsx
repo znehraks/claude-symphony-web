@@ -17,13 +17,13 @@ export default function CTASection() {
           </span>
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-[#94a3b8]">
-          Transform your development workflow with autonomous multi-AI
-          orchestration. One command to begin.
+          Transform your development workflow with multi-AI
+          orchestration. Clone and start building.
         </p>
 
         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <CopyButton
-            text="npx claude-symphony init"
+            text="git clone https://github.com/znehraks/claude-symphony"
             className="w-full sm:w-auto"
           />
           <a

@@ -189,7 +189,7 @@ export default function HeroSection() {
         <SplitTextHero text="Orchestrate Your Entire Product Lifecycle" />
 
         <p className="mx-auto mt-6 max-w-2xl text-lg text-[#94a3b8]">
-          An autonomous agent pipeline that transforms ideas into deployed code through{" "}
+          An AI-orchestrated pipeline that transforms ideas into deployed code through{" "}
           <span className="text-[#f1f5f9]">10 specialized stages</span>, powered by{" "}
           <span className="text-[#8b5cf6]">Claude</span>,{" "}
           <span className="text-[#10b981]">Gemini</span>, and{" "}
