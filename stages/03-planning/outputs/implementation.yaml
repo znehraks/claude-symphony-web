@@ -1,0 +1,122 @@
+# Implementation Rules - claude-symphony Landing Page
+# Generated: Stage 03-planning | Date: 2026-01-30
+# Based on: config/implementation.yaml.template
+
+# Component Standards
+component:
+  type: "functional"                    # Functional components only (React 19)
+  naming: "PascalCase"                  # Component files: PascalCase
+  export: "default"                     # Default export for dynamic imports
+  directive: "use client"               # All section components need this
+
+# Styling
+styling:
+  approach: "tailwind"                  # Tailwind CSS v4
+  config: "css-only"                    # @theme inline {} in globals.css (no tailwind.config.ts)
+  class_merge: "clsx + tailwind-merge"  # cn() utility in lib/utils.ts
+  theme:
+    background: "#0a0a0f"
+    card: "#111827"
+    claude_violet: "#8b5cf6"
+    gemini_emerald: "#10b981"
+    codex_amber: "#f59e0b"
+    text_primary: "#f1f5f9"
+    text_secondary: "#94a3b8"
+
+# State Management
+state:
+  approach: "local-only"                # No global state (landing page)
+  library: "none"                       # useState only
+  patterns:
+    - "useState for local UI state"
+    - "Props from Server Component for data"
+
+# Animation
+animation:
+  primary: "motion/react"               # NOT framer-motion
+  secondary: "gsap"                     # Hero SplitText only
+  import_pattern: "import { motion } from 'motion/react'"
+  gsap_scope: "hero-only"              # GSAP isolated to HeroSection
+  reduced_motion: "required"            # All animations must respect prefers-reduced-motion
+
+# Naming Conventions
+naming:
+  components: "PascalCase"              # HeroSection.tsx, StageCard.tsx
+  files: "kebab-case"                   # hero.tsx, stage-card.tsx
+  hooks: "camelCase"                    # useInView.ts
+  data: "SCREAMING_SNAKE_CASE"         # STAGES, FEATURES, METRICS
+  interfaces: "PascalCase"             # Stage, Feature, Metric
+  css_vars: "kebab-case"               # --color-claude, --font-geist-sans
+
+# Folder Structure
+structure:
+  type: "feature-based"
+  root: "website/"
+  directories:
+    app: "app/"                         # Next.js App Router pages
+    sections: "components/sections/"    # 6 page sections
+    magicui: "components/magicui/"      # MagicUI source copies
+    reactbits: "components/reactbits/"  # ReactBits source copies
+    pipeline: "components/pipeline/"    # Pipeline sub-components
+    ui: "components/ui/"                # Shared UI primitives
+    lib: "lib/"                         # Data, types, utilities
+    hooks: "hooks/"                     # Custom React hooks
+
+# API Integration
+api:
+  type: "none"                          # Static landing page, no API calls
+  data_source: "lib/data.ts"           # All data is static TypeScript
+
+# Error Handling
+error_handling:
+  strategy: "graceful-degradation"
+  patterns:
+    - "Animation failure: show static content"
+    - "Canvas not supported: CSS gradient fallback"
+    - "Clipboard API failure: show text selection hint"
+    - "Font load failure: system font fallback via display:swap"
+
+# Testing
+testing:
+  unit: "vitest"
+  e2e: "playwright"
+  visual: "playwright screenshots"
+  performance: "lighthouse-ci"
+  coverage_target: 80
+  test_patterns:
+    - "Section render tests (all 6 sections)"
+    - "Data mapping tests (10 stages, 6 features, 4 metrics)"
+    - "Responsive snapshots (3 breakpoints)"
+    - "Reduced-motion behavior tests"
+    - "E2E scroll-through test"
+
+# Code Quality
+quality:
+  linter: "eslint"
+  formatter: "prettier"
+  type_check: "tsc --noEmit"
+  bundle_check: "@next/bundle-analyzer"
+  rules:
+    - "No any types"
+    - "Explicit return types on exported functions"
+    - "No inline styles (use Tailwind)"
+    - "All images must have alt text"
+    - "All interactive elements must be keyboard accessible"
+
+# Performance Budget
+performance:
+  total_bundle: "150KB gzip"
+  initial_load: "80KB gzip"
+  lazy_chunk_max: "35KB gzip"
+  lcp_target: "2.5s"
+  cls_target: "0.1"
+  inp_target: "200ms"
+  lighthouse_target: 95
+
+# Import Rules
+imports:
+  motion: "import { motion, AnimatePresence } from 'motion/react'"
+  gsap: "import gsap from 'gsap'"
+  gsap_react: "import { useGSAP } from '@gsap/react'"
+  icons: "import { IconName } from 'lucide-react'"  # Individual imports only
+  no_barrel_exports: true                            # No index.ts re-exports
