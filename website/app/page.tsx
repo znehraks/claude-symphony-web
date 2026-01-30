@@ -15,11 +15,6 @@ const FeaturesSection = dynamic(
   { loading: () => <SectionSkeleton height="h-96" /> }
 );
 
-const MetricsSection = dynamic(
-  () => import("@/components/sections/metrics"),
-  { loading: () => <SectionSkeleton height="h-48" /> }
-);
-
 const CTASection = dynamic(
   () => import("@/components/sections/cta"),
   { loading: () => <SectionSkeleton height="h-64" /> }
@@ -35,8 +30,6 @@ export default function Home() {
       <PipelineSection />
       <WaveDivider />
       <FeaturesSection />
-      <WaveDivider />
-      <MetricsSection />
       <WaveDivider />
       <CTASection />
     </>
